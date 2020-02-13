@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 
 import Offer from "./containers/Offer";
 import Offers from "./containers/Offers";
+import Login from "./containers/Login";
+import Signup from "./containers/Signup";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -26,7 +28,12 @@ function App() {
           <Route path="/offer/:id">
             <Offer />
           </Route>
-
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
           <Route path="/">
             <Offers />
           </Route>

@@ -28,7 +28,7 @@ function Offer(props) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <>

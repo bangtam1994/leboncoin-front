@@ -7834,6 +7834,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"js-cookie@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "js-cookie@npm:2.2.1"
+  checksum: e8592ad6f078925c597e2a088a489c08e84d4207bc309a65b57c2a86bf2a83bc939244119da0b620683ffffb47a7d1f56c93b5ee9fcbe18869048f4026f38789
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -8166,6 +8173,7 @@ fsevents@^1.2.7:
     "@testing-library/react": ^9.3.2
     "@testing-library/user-event": ^7.1.2
     axios: ^0.19.2
+    js-cookie: ^2.2.1
     react: ^16.12.0
     react-dom: ^16.12.0
     react-router-dom: ^5.1.2

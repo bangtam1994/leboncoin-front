@@ -24,7 +24,9 @@ function Header() {
         <div className="header-right flex1">
           <div className="login ">
             <FontAwesomeIcon icon="user" />
-            <div>Se connecter </div>
+            <Link to="/login">
+              <div>Se connecter </div>
+            </Link>
           </div>
         </div>
       </div>
