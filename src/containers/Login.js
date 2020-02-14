@@ -1,16 +1,49 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import Cookies from "js-cookie";
 
-function Login() {
+function Login(props) {
+  // Déclaration des states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  //fonction pour rediriger vers homepage
+  let history = useHistory();
+
+  // fonction pour submit connexion
+  const handleConnexion = async event => {
+    event.preventDefault();
+    await axios
+      .post("https://leboncoin-api.herokuapp.com/api/user/log_in", {
+        email: email,
+        password: password
+      })
+      .then(function(response) {
+        console.log(response);
+
+        //J'enregistre mon token dans mes cookies
+        const token = response.data.token;
+        console.log("your login token is", token);
+        Cookies.set("token", token, { expires: 7 });
+
+        // Je remplace le bouton "se connecter" par "se déconnecter"
+        props.setUser({ token: token });
+        history.push("/");
+      })
+      .catch(function(error) {
+        alert("invalid username or password");
+        console.log(error);
+      });
+  };
+
   return (
-    <div className="container">
+    <div className="container login">
       {/* formulaire pour connexion  */}
-      <form>
-        <h2> Bonjour ! </h2>
-        <p>Connectez-vous pour découvrir toutes nos fonctionnalités.</p>
-        <p> Email</p>
+      <form onSubmit={handleConnexion}>
+        <h2> Connexion </h2>
+        <hr />
+        <p> Adresse email</p>
         <input
           type="text"
           name="email"
@@ -30,14 +63,15 @@ function Login() {
           }}
         />
         <br />
-        <input type="submit" value="Se connecter" />
+        {/* Bouton pour se connecter  */}
+        <input className="btn-login" type="submit" value="Se connecter" />
       </form>
 
       {/* formulaire pour redigirer vers signup  */}
       <form>
         <p>Vous n'avez pas de compte ?</p>
         <Link to="/signup">
-          <input type="submit" value="Créer un compte" />
+          <input className="btn-login" type="submit" value="Créer un compte" />
         </Link>
       </form>
     </div>

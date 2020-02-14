@@ -4366,10 +4366,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"csstype@npm:^2.6.6":
+  version: 2.6.9
+  resolution: "csstype@npm:2.6.9"
+  checksum: cee488325e6d12e65bbfdc318b030c41c47ce309d515f394e3b1a2cb44d7aaa0b91f43383d245155f97b5fff946f9ef02d4f6b1d1fa50f5763e54cbc71cf867e
+  languageName: node
+  linkType: hard
+
 "cyclist@npm:^1.0.1":
   version: 1.0.1
   resolution: "cyclist@npm:1.0.1"
   checksum: 11d7b72d9552ff0b277ddc48351fdf4b333bf423dd50824b4a37ae8c1d2da9bb6e260c115049b30ace77d600d6b5ab63ccc558dcac806e804ca5df4a29e43bc7
+  languageName: node
+  linkType: hard
+
+"d3-ease@npm:^1.0.3":
+  version: 1.0.6
+  resolution: "d3-ease@npm:1.0.6"
+  checksum: 89f9e9ff9e0934c68789dbfa57a0b35726a1d8c1407519c3947e4f24010584d54fbe4e1f05811e3eac6baec878a260eee0ce11652abcc4f3fcd78f83b701337d
+  languageName: node
+  linkType: hard
+
+"d3-timer@npm:^1.0.9":
+  version: 1.0.10
+  resolution: "d3-timer@npm:1.0.10"
+  checksum: 0f29514cfe1e980ba055537428c6a3edfe15385f084f6ec162af86e6bb6e81bed678390a1556e83bf35d1faf3c2d38a2a35f4214e7aa5e37e001d47fa01430cf
   languageName: node
   linkType: hard
 
@@ -5387,6 +5408,13 @@ __metadata:
     signal-exit: ^3.0.0
     strip-eof: ^1.0.0
   checksum: 4c8005b1192433dd9cb42c0b2e3d616d8f5def85f38906bb644b8468c44824b5f2f8b265661e2f6ed7ba87cb7ae2e6aa66a96ae5093d8feca99fa51ac30b3783
+  languageName: node
+  linkType: hard
+
+"exenv@npm:^1.2.0":
+  version: 1.2.2
+  resolution: "exenv@npm:1.2.2"
+  checksum: e5ed9f6cdbc45ac01d7ea94b44310ceb1a52cf7f70e6571d7ec6ccb2e14bd981079a8b8764ceb27539822a3e54578cdb2fa0cb6bd89a3ec55ae1d436c29be572
   languageName: node
   linkType: hard
 
@@ -8074,6 +8102,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"kapellmeister@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "kapellmeister@npm:3.0.1"
+  dependencies:
+    d3-timer: ^1.0.9
+  checksum: 28da32c0e2f4baed4f26d77cea010af9c27cdf4c0772b187bf5dddcfd439af77bd8a65e5a8e32289f26dca40687ed19535d1ff291d0eadee16f1adddf28ace88
+  languageName: node
+  linkType: hard
+
 "killable@npm:^1.0.1":
   version: 1.0.1
   resolution: "killable@npm:1.0.1"
@@ -8174,8 +8211,11 @@ fsevents@^1.2.7:
     "@testing-library/user-event": ^7.1.2
     axios: ^0.19.2
     js-cookie: ^2.2.1
+    moment: ^2.24.0
+    nuka-carousel: ^4.6.3
     react: ^16.12.0
     react-dom: ^16.12.0
+    react-moment: ^0.9.7
     react-router-dom: ^5.1.2
     react-scripts: 3.3.1
   languageName: unknown
@@ -8802,6 +8842,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"moment@npm:^2.24.0":
+  version: 2.24.0
+  resolution: "moment@npm:2.24.0"
+  checksum: 56e19bd546ba5851580573c9294a87c8e38fb97a7b9e3ce67f5b3da6490354869596fc1f3af2a773c85e5a3299cb26772146eabd04c844d2092c10f7614a24fa
+  languageName: node
+  linkType: hard
+
 "move-concurrently@npm:^1.0.1":
   version: 1.0.1
   resolution: "move-concurrently@npm:1.0.1"
@@ -9183,6 +9230,22 @@ fsevents@^1.2.7:
   dependencies:
     boolbase: ~1.0.0
   checksum: e2f91aecddbcc587c14edb357c4ddce8bf484b716dbadcbac03f0a9d2c89b675efb781366a89c309446ccc5f10e78240832d3a72cb21f6f6d38c690bd6ecfbed
+  languageName: node
+  linkType: hard
+
+"nuka-carousel@npm:^4.6.3":
+  version: 4.6.3
+  resolution: "nuka-carousel@npm:4.6.3"
+  dependencies:
+    csstype: ^2.6.6
+    d3-ease: ^1.0.3
+    exenv: ^1.2.0
+    prop-types: ^15.6.0
+    react-move: ^5.0.0
+  peerDependencies:
+    react: ^0.14.9 || ^15.3.0 || ^16.0.0
+    react-dom: ^0.14.9 || ^15.3.0 || ^16.0.0
+  checksum: 2758fc5d8df1f71388503f5d80c02ba56614f9ce40af14a9ca6603e42231a1e0915e5761193b6a0287e64852604b926c2b58e7434e5829d1141c06ea02ae15dd
   languageName: node
   linkType: hard
 
@@ -10885,7 +10948,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -11170,6 +11233,38 @@ fsevents@^1.2.7:
   version: 16.12.0
   resolution: "react-is@npm:16.12.0"
   checksum: 1cc13815109812213f5f1e15718551c2c4b3c164b447bd35ceba920dc268c5f0710617f12076d9b8100edd4a7e935f76bf19abe745068e387ff2670b3a3fdb0d
+  languageName: node
+  linkType: hard
+
+"react-lifecycles-compat@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "react-lifecycles-compat@npm:3.0.4"
+  checksum: 5845821224611602cb37ea3947d73efe619666a2f8ad7dbadd82bcdae823c499de214d39b3503e9fbf8da3daa2c2483e21ce01bdd65d6cce99dd2f42e3c838dc
+  languageName: node
+  linkType: hard
+
+"react-moment@npm:^0.9.7":
+  version: 0.9.7
+  resolution: "react-moment@npm:0.9.7"
+  peerDependencies:
+    moment: ^2.24.0
+    prop-types: ^15.7.2
+    react: ^15.6.0 || ^16.0.0
+  checksum: 4b8d76abc845823a68b287985c6909bbe28b78d5bbdd79945b8bdeaf06942ea8fb1b0419d2a47c6b8c5f359ac468ad4618324f27e4439ce06fcd4cf9fd3a2f4e
+  languageName: node
+  linkType: hard
+
+"react-move@npm:^5.0.0":
+  version: 5.2.1
+  resolution: "react-move@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": ^7.3.4
+    kapellmeister: ^3.0.1
+    prop-types: ^15.7.2
+    react-lifecycles-compat: ^3.0.4
+  peerDependencies:
+    react: ^0.14.9 || ^15.3.0 || ^16.0.0
+  checksum: 8ffdf7c8efa727d581b064983536ece83024ae3bb508bdfee091e5a6c25fe34e826ffbbf1a0177384d82daaa9a125717fe4ae3f9780637858332b69ad3b70a53
   languageName: node
   linkType: hard
 

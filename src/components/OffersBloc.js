@@ -1,6 +1,7 @@
 import React from "react";
-import noPictures from "../images/img-not-available.svg";
+import noPictures from "../images/img-not-available.jpg";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
 
 function OffersBloc({
   pictures,
@@ -28,7 +29,7 @@ function OffersBloc({
         <div className="offers-bloc-details">
           <h3>{title}</h3>
           {price && <div className="price">{price}€ </div>}
-          <div>{created}</div>
+          <Moment format="DD/MM/YYYY">{created}</Moment>
         </div>
       </div>
     </Link>

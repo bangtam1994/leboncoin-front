@@ -42,6 +42,7 @@ function Signup() {
         })
         .catch(function(error) {
           console.log(error);
+          alert("invalid request");
         });
     }
   };
@@ -88,11 +89,18 @@ function Signup() {
           }}
         />
         <br />
-        <input type="checkbox" onClick={handleCheckbox} />
-        <span>
-          "J'accepte les Conditions générales de Vente et les Conditions
-          Générales d'utilisation"
-        </span>
+        <div className="generalConditions">
+          <input
+            className="checkboxSignup"
+            type="checkbox"
+            onClick={handleCheckbox}
+          />
+          <div>
+            "J'accepte les Conditions générales de Vente et les Conditions
+            Générales d'utilisation"
+          </div>{" "}
+        </div>
+
         <br />
 
         {/* Bouton creer mon compte  */}

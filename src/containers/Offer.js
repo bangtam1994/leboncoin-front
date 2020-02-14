@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import noPictures from "../images/img-not-available.svg";
+import Carousel from "nuka-carousel";
+import Moment from "react-moment";
+import noPictures from "../images/img-not-available.jpg";
 
 import { useParams } from "react-router-dom";
 
@@ -41,14 +43,29 @@ function Offer(props) {
       ) : (
         <div className="offer container d-flex">
           <div className="blocLeft flex3">
-            {offer.pictures ? (
-              <div>
+            {offer.pictures.length !== 0 ? (
+              <Carousel
+                defaultControlsConfig={{
+                  nextButtonText: ">",
+
+                  prevButtonText: "<",
+                  pagingDotsStyle: {
+                    fill: "grey",
+                    width: "30px"
+                  }
+                }}
+              >
                 {offer.pictures.map((elem, index) => {
                   return (
-                    <img src={elem} alt={offer.title} className="offerPic" />
+                    <img
+                      src={elem}
+                      alt={offer.title}
+                      className="offerPic"
+                      key={offer.title}
+                    />
                   );
                 })}
-              </div>
+              </Carousel>
             ) : (
               <img src={noPictures} alt="nopic" className="picEmpty" />
             )}
@@ -56,7 +73,9 @@ function Offer(props) {
             <div className="offerDetails">
               <h2> {offer.title}</h2>
               <div> {offer.price} €</div>
-              <div> {offer.created} </div>
+              <div>
+                <Moment format="DD/MM/YYYY">{offer.created}</Moment>
+              </div>
             </div>
 
             <div className="offerDescription">
@@ -69,6 +88,7 @@ function Offer(props) {
               <h2>{offer.creator.account.username}</h2>
               <div>X annonces en ligne</div>
             </div>
+            <br />
             <button> Acheter </button>
           </div>
         </div>
