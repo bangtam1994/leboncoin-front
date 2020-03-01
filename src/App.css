@@ -30,10 +30,44 @@ h3 {
   font-size: 18px;
 }
 
+main {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 2.5rem; /* Footer height */
+}
+
 .container {
   width: 70%;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.btn {
+  background-color: #e86b28;
+  width: 220px;
+  height: 40px;
+  color: white;
+  font-size: 14px;
+  line-height: 19px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 25px;
+}
+
+/* FOOTER  */
+
+footer {
+  background-color: rgb(206, 204, 198);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;
+  box-sizing: border-box;
 }
 
 /* HEADER  */
@@ -41,6 +75,9 @@ h3 {
 header {
   height: 65px;
   background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 11;
 }
 
 header .container {
@@ -103,7 +140,14 @@ header .icon-search {
   justify-content: flex-end;
   line-height: 20px;
   cursor: pointer;
+  align-items: center;
 }
+
+header .sign-in-modal {
+  font-size: 20px;
+  margin: 0 15px;
+}
+
 header .login {
   height: 65px;
   display: flex;
@@ -144,12 +188,76 @@ header .login:hover::after {
 } */
 */
 
+
+/* MODAL  */
+
+.loginModal {
+  cursor: pointer;
+
+  border-radius: 40%;
+  width: 60px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+.whiteblock {
+  background-color: white;
+  width: 400px;
+  padding: 30px;
+  z-index: 3333;
+  margin: 200px auto;
+  text-align: center;
+}
+
+.modal p {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.modal input {
+  width: 200px;
+  height: 20px;
+}
+
+.modal .modal-btn-login {
+  background-color: #e86b28;
+  color: white;
+  margin: 20px auto;
+  height: 40px;
+  width: 50%;
+  border-radius: 5px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal .modal-btn-login:hover {
+  background-color: #a14d1f;
+  transition: 0.3s;
+}
+
+.modalCloseBtn {
+  font-size: 20px;
+  margin: 10px;
+}
+
 /* OFFERS PAGE  */
 
 .blocorange {
   background-color: #e86b28;
   border: none;
-  height: 400px;
+  height: 300px;
   border-radius: 100%;
   position: absolute;
   width: 140%;
@@ -176,7 +284,7 @@ header .login:hover::after {
 
 .offers input {
   background-color: #f3f6f7;
-  border-radius: 3px;
+  border-radius: 5px;
   border: none;
   height: 40px;
   width: 320px;
@@ -197,7 +305,7 @@ header .login:hover::after {
 }
 .offers button {
   background-color: #e86b28;
-  border-radius: 3px;
+  border-radius: 5px;
   height: 44px;
   width: 120px;
   font-size: 14px;
@@ -237,6 +345,7 @@ header .login:hover::after {
   height: 180px;
   object-fit: cover;
   object-position: center;
+  border-radius: 10px 0 0 10px;
 }
 
 .offers-bloc-details {
@@ -260,13 +369,18 @@ header .login:hover::after {
   /* background-color: yellow; */
 }
 
-.offer .offerPic,
+.offerPic,
 .picEmpty {
-  /* height: 100%; */
+  height: 300px;
   width: 100%;
   justify-content: center;
   object-position: center;
-  object-fit: contain;
+  object-fit: cover;
+  /* z-index: -1; */
+}
+
+.offerPic:hover {
+  border: none;
 }
 
 .offerDetails {
@@ -321,6 +435,27 @@ header .login:hover::after {
   color: rgb(72, 72, 202);
 }
 
+/* CAROUSEL  */
+
+.carousel {
+  /* background-color: yellow; */
+}
+
+.carouselButton {
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 50px;
+  width: 50px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carouselButton:
+
 /* LOGIN  */
 
 .login form {
@@ -356,10 +491,13 @@ header .login:hover::after {
 .login .btn-login {
   background-color: #e86b28;
   color: white;
-  margin: 20px auto;
+  margin: 40px auto 0 auto;
   height: 40px;
-  border-radius: 3px;
+  width: 50%;
+  border-radius: 5px;
   font-size: 18px;
+  display: flex;
+  justify-content: center;
 }
 
 .login .btn-login:hover {
@@ -371,7 +509,7 @@ header .login:hover::after {
 
 .signup form {
   background-color: white;
-  border-radius: 3px;
+  border-radius: 5px;
   margin: 30px auto;
   padding: 40px;
 }
@@ -379,7 +517,7 @@ header .login:hover::after {
 .signup input {
   width: 100%;
   height: 30px;
-  border-radius: 3px;
+  border-radius: 5px;
   border: 1px solid #e5e5e5;
 }
 
@@ -416,12 +554,104 @@ header .login:hover::after {
   transition: 0.3s;
 }
 
-/* FOOTER  */
+/* PUBLISH  */
 
-footer {
-  margin: 100px 0;
-  background-color: rgb(240, 231, 202);
-  height: 60px;
+.publish {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+}
+
+.publish .publish-btn {
+  background-color: #e86b28;
+  color: white;
+  margin: 40px auto 0 auto;
+  height: 40px;
+  width: 50%;
+  border-radius: 5px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.publish .publish-btn:hover {
+  background-color: #a14d1f;
+  transition: 0.3s;
+}
+
+.publish input {
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.publish .price {
+  display: flex;
+  align-items: center;
+}
+.publish .price input {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.publish-done {
+  background-color: white;
+  margin: 100px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* DRAGxDROP  */
+.dropbox {
+  border: 2px dashed lightgrey;
+  color: grey;
+  font-size: 18px;
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dropbox:hover {
+  border: 2px dashed orange;
+  background-color: rgb(245, 245, 245);
+}
+
+/* PAGINATION  */
+.pagination-number {
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* PAYMENT  */
+
+.payment h2 {
+  margin: 20px 0;
+}
+
+.payment .price {
+  color: #e86b28;
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.payment .checkoutForm {
+  margin: 10px 0;
+}
+
+.payment img {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.checkout {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 /* FLEXBOX  */

@@ -28,21 +28,31 @@ function Signup() {
       alert("Please accept the general conditions");
     } else {
       await axios
-        .post("https://leboncoin-api.herokuapp.com/api/user/sign_up", {
-          username: pseudo,
-          email: email,
-          password: password
-        })
+        .post(
+          "https://leboncoin-api.herokuapp.com/user/sign_up",
+
+          {
+            username: pseudo,
+            email: email,
+            password: password
+          }
+        )
         .then(function(response) {
-          console.log(response);
+          console.log("la réponse de l'api est:", response);
           const token = response.data.token;
-          console.log(token);
-          Cookies.set("token", token, { expires: 7 });
-          history.push("/");
+          console.log("le token est:", token);
+          if (response.data.message === "email already exist") {
+            alert("Cet email est déjà utilisé");
+          } else if (response.data.message === "Missing information") {
+            alert("Il manque des informations pour la création du comte");
+          } else {
+            Cookies.set("token", token, { expires: 7 });
+            history.push("/");
+          }
         })
         .catch(function(error) {
           console.log(error);
-          alert("invalid request");
+          alert(error);
         });
     }
   };

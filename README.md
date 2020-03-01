@@ -1,68 +1,96 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1  align="center">Leboncoin  FrontEnd </h1>
 
-## Available Scripts
+  <p align="center">
+  <a  href="https://leboncoin-front.netlify.com/">
+	<img src="https://s5.gifyu.com/images/leboncoin-front.gif" width="700"></a>
+</p>
 
-In the project directory, you can run:
+## Overview
 
-### `yarn start`
+Replica of Leboncoin website ; made in React.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Screenshot**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<p align="center">
+<a  href="https://leboncoin-front.netlify.com"><img  src="https://i.ibb.co/hspRskr/Capture-d-e-cran-2020-03-01-a-23-33-12.png" width="500" title="leboncoin frontend "  alt="leboncoin frontend"></a>
+</p>
 
-### `yarn test`
+**Client**
+Netlify : <a  href="https://leboncoin-front.netlify.com"  target="_blank"> https://leboncoin-front.netlify.com/</a>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Server**
 
-### `yarn build`
+GitHub : <a  href="https://github.com/bangtam1994/leboncoin-api">https://github.com/bangtam1994/leboncoin-api</a>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Heroku : <a  href="http://leboncoin-backend-by-bt.herokuapp.com"  target="_blank"> http://leboncoin-backend-by-bt.herokuapp.com/offer/with-count</a>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Packages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- Axios
 
-### `yarn eject`
+  ## Running the project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Clone this repository :
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+git clone https://github.com/bangtam1994/leboncoin-front.git
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+cd leboncoin-front
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To install packages :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm install
+```
 
-### Code Splitting
+or
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+yarn add
+```
 
-### Analyzing the Bundle Size
+When installation is complete, run the project with:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+yarn start or npm start
+```
 
-### Making a Progressive Web App
+## Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Client : deployed with Netlify
 
-### Advanced Configuration
+- Server : deployed with Heroku
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Installation and usage
 
-### Deployment
+Please ensure you have React installed a react app on your computer.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+To install packages :
 
-### `yarn build` fails to minify
+```
+npm install
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+or
+
+```
+yarn add
+```
+
+When installation is complete, run the project with:
+
+```
+yarn start
+```
+
+## Contact
+
+<a  href="[https://www.linkedin.com/in/bangtamnguyen/](https://www.linkedin.com/in/bangtamnguyen/)"  target="_blank"> <img src="https://salon-ctco.com/wp-content/uploads/2018/09/Logo-LinkedIn.png" 
+width="45"
+/></a> <a  href="mailto:bangtam1994@hotmail.com"  target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" 
+width="40" 
+/></a>

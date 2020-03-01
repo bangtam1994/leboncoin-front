@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import OffersBloc from "../components/OffersBloc";
+import Pagination from "../components/Pagination";
 
-function Offers() {
+import Search from "../containers/Search";
+
+function Offers({ search, setSearch }) {
   const [data, setData] = useState({});
-
   const [isLoading, setIsLoading] = useState(true);
+  let history = useHistory();
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  const numberPages = Math.ceil(data.count / 20);
+  console.log(data.count);
 
   const fetchData = async () => {
     try {
@@ -26,6 +38,21 @@ function Offers() {
     fetchData();
   }, []);
 
+  // //Change page
+
+  // const nextPage = async numberPage => {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://leboncoin-api.herokuapp.com/api/offer/with-count?skip=25&limit=25`
+  //     );
+  //     setData(response.data);
+  //     setCurrentPage(numberPage);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+
   return (
     <>
       {isLoading === true ? (
@@ -41,15 +68,30 @@ function Offers() {
               <input
                 placeholder="Que recherchez-vous?"
                 className="input-search"
+                name="search"
+                value={search}
+                onChange={event => {
+                  setSearch(event.target.value);
+                }}
               />
-              <button>Rechercher</button>
+              <button
+                onClick={() => {
+                  return history.push("/search");
+                }}
+              >
+                Rechercher
+              </button>
             </div>
-
             {/* détails des offres  */}
 
-            {data.offers.map(offer => {
-              return <OffersBloc {...offer} />;
-            })}
+            <OffersBloc offers={data.offers} />
+
+            {/* <Pagination
+              data={data}
+              currentPage={currentPage}
+              pages={numberPages}
+              nextPage={nextPage}
+            /> */}
           </div>
         </div>
       )}

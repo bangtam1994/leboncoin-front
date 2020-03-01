@@ -1835,6 +1835,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:>=8.1.0":
+  version: 13.7.1
+  resolution: "@types/node@npm:13.7.1"
+  checksum: e8d9fb12fb52214f369acc27bdb3c797c1f4f10d41b6e23c092372bd0182d8999c6baa30f13bf879b577ac58b43bd51a1c2f89d097208165794e9d148f1a607e
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
@@ -2680,6 +2687,13 @@ __metadata:
   bin:
     atob: bin/atob.js
   checksum: ee981a0bdf94828cffe16360552754dd357266ba9c231df086530a564257ef7c763b8c524d7a43d4298f1cfb2faa3aaa3c66a7858974bc2846e99151b988d654
+  languageName: node
+  linkType: hard
+
+"attr-accept@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "attr-accept@npm:2.0.0"
+  checksum: 27f11926138891ef7594657ba69ef75de2a1a531460d3b2938f832af804c4f54750427bc40b6319501d831f43c8995995d27d8b92b83e011998f1ade41e4bc17
   languageName: node
   linkType: hard
 
@@ -5667,6 +5681,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"file-selector@npm:^0.1.12":
+  version: 0.1.12
+  resolution: "file-selector@npm:0.1.12"
+  dependencies:
+    tslib: ^1.9.0
+  checksum: d9db54c3919db862d5e7dfd8529bee8acdf60e31cf1492b6dfd3e1b0865a8407f7559f76504e445721751103a928b495cd2077a4fc347b51d3f06bed3a7a6c2f
+  languageName: node
+  linkType: hard
+
 "file-uri-to-path@npm:1.0.0":
   version: 1.0.0
   resolution: "file-uri-to-path@npm:1.0.0"
@@ -8215,9 +8238,12 @@ fsevents@^1.2.7:
     nuka-carousel: ^4.6.3
     react: ^16.12.0
     react-dom: ^16.12.0
+    react-dropzone: ^10.2.1
     react-moment: ^0.9.7
     react-router-dom: ^5.1.2
     react-scripts: 3.3.1
+    react-stripe-elements: ^6.1.0
+    stripe: ^8.18.0
   languageName: unknown
   linkType: soft
 
@@ -10948,7 +10974,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:15.7.2, prop-types@npm:^15.5.10, prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -11060,6 +11086,13 @@ fsevents@^1.2.7:
   version: 6.7.0
   resolution: "qs@npm:6.7.0"
   checksum: 00917393bac59cda442020ca17fe8df9c176ca12c915b8475ab181c0d81e8cefc66d559af9287f47380d37a5188f95f8489300ff059514449982f3deed1fc52a
+  languageName: node
+  linkType: hard
+
+"qs@npm:^6.6.0":
+  version: 6.9.1
+  resolution: "qs@npm:6.9.1"
+  checksum: f1a783a289b5e8bfd0c5c12820a52fc886febe3d90bd42573d52bcd1ca67e72dfd9f238afd809791962b07b690504015cad18d3d0bd662e739baccd3369d4e25
   languageName: node
   linkType: hard
 
@@ -11222,6 +11255,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-dropzone@npm:^10.2.1":
+  version: 10.2.1
+  resolution: "react-dropzone@npm:10.2.1"
+  dependencies:
+    attr-accept: ^2.0.0
+    file-selector: ^0.1.12
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ">= 16.8"
+  checksum: 575468ebe318c5302dd7dca137543ff878662aa5f8a79a6e0a3464b4173de83324dd587f66f399e4539a05fa1a9cda6291bb12a133f86a9ea188b1db609fa5a7
+  languageName: node
+  linkType: hard
+
 "react-error-overlay@npm:^6.0.5":
   version: 6.0.5
   resolution: "react-error-overlay@npm:6.0.5"
@@ -11373,6 +11419,18 @@ fsevents@^1.2.7:
   bin:
     react-scripts: ./bin/react-scripts.js
   checksum: 6cf9156845a5721d7d49715c51eca5c1b980541275c4a2917327de668bec5bec11d902d335c9597f1ae1f42e8478c91ecdd85362bc713a7c57a6578e5e2bc90c
+  languageName: node
+  linkType: hard
+
+"react-stripe-elements@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "react-stripe-elements@npm:6.1.0"
+  dependencies:
+    prop-types: 15.7.2
+  peerDependencies:
+    react: ^15.5.4 || ^16.0.0-0
+    react-dom: ^15.5.4 || ^16.0.0-0
+  checksum: 5348e4dcd7a8251a6e36ab1615bd8e966fddd803e2bea711cb2e1a13c2375611b8520d6818861367d35bad10bac9d040504862675d8e1978a09218d84af8c77c
   languageName: node
   linkType: hard
 
@@ -12858,6 +12916,16 @@ resolve@1.1.7:
   version: 2.0.1
   resolution: "strip-json-comments@npm:2.0.1"
   checksum: 8d41b14dfd5d71e1ed9b4846291e709cd773f73d4ea6458e096d65c14af43c12b90808934373fedde19f3ecb78057d29430665069af7f3c4e10343f2de956b74
+  languageName: node
+  linkType: hard
+
+"stripe@npm:^8.18.0":
+  version: 8.18.0
+  resolution: "stripe@npm:8.18.0"
+  dependencies:
+    "@types/node": ">=8.1.0"
+    qs: ^6.6.0
+  checksum: cce89d063a0e7bdc0408cacd10359c469df9a70cfba96bcae41754b6c7e545e2c61ec728fcedbc250735d758ad89566e6db8e863305a8720d28da749879a6b4d
   languageName: node
   linkType: hard
 

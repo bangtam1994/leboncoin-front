@@ -15,21 +15,30 @@ function Login(props) {
   const handleConnexion = async event => {
     event.preventDefault();
     await axios
-      .post("https://leboncoin-api.herokuapp.com/api/user/log_in", {
-        email: email,
-        password: password
-      })
+      .post(
+        "https://leboncoin-api.herokuapp.com/api/user/log_in",
+
+        {
+          email: email,
+          password: password
+        }
+      )
       .then(function(response) {
         console.log(response);
+        if (response.data.message === "User not found") {
+          alert("Cet utilisateur n'existe pas");
+        } else if (response.data.message === "Access denied") {
+          alert("Username or password incorrect");
+        } else {
+          //J'enregistre mon token dans mes cookies
+          const token = response.data.token;
+          console.log("your login token is", token);
+          Cookies.set("token", token, { expires: 7 });
 
-        //J'enregistre mon token dans mes cookies
-        const token = response.data.token;
-        console.log("your login token is", token);
-        Cookies.set("token", token, { expires: 7 });
-
-        // Je remplace le bouton "se connecter" par "se déconnecter"
-        props.setUser({ token: token });
-        history.push("/");
+          // Je remplace le bouton "se connecter" par "se déconnecter"
+          props.setUser({ token: token });
+          history.push("/");
+        }
       })
       .catch(function(error) {
         alert("invalid username or password");
@@ -70,7 +79,7 @@ function Login(props) {
       {/* formulaire pour redigirer vers signup  */}
       <form>
         <p>Vous n'avez pas de compte ?</p>
-        <Link to="/signup">
+        <Link to="/user/sign_up">
           <input className="btn-login" type="submit" value="Créer un compte" />
         </Link>
       </form>
