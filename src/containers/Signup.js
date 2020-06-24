@@ -38,7 +38,7 @@ function Signup() {
       console.log("AFTER FORMAT", parsedBirthdate);
       await axios
         .post(
-          "http://leboncoin-backend-by-bt.herokuapp.com/user/sign_up",
+          "https://leboncoin-backend-by-bt.herokuapp.com/user/sign_up",
 
           {
             username: pseudo,
