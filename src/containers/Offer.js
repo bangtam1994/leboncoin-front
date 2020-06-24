@@ -14,7 +14,7 @@ function Offer(props) {
   const [offer, setOffer] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
-  const myLink = "http://leboncoin-backend-by-bt.herokuapp.com/offer/" + id;
+  const myLink = "https://leboncoin-api.herokuapp.com/api/offer/" + id;
 
   console.log(myLink);
 

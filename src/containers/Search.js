@@ -24,7 +24,7 @@ function Search({
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://leboncoin-backend-by-bt.herokuapp.com/offer/with-count"
+        "https://leboncoin-api.herokuapp.com/api/offer/with-count"
       );
       setData(response.data);
       setIsLoading(false);
