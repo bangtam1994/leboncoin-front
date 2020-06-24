@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
+import { format, parseISO } from "date-fns";
 
 function Signup() {
   //Déclaration des states
   const [pseudo, setPseudo] = useState("");
   const [email, setEmail] = useState("");
+  const [birthdate, setBirthdate] = useState("");
+
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [checkbox, setCheckbox] = useState(false);
@@ -20,24 +23,31 @@ function Signup() {
   let history = useHistory();
 
   //fonction quand on submit le formulaire d'inscription
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== passwordConfirm) {
       alert("Passwords are not matching");
     } else if (checkbox === false) {
       alert("Please accept the general conditions");
     } else {
+      let parsedBirthdate = parseISO(birthdate);
+      console.log("birthdate", birthdate);
+      console.log("parsedISObirthdate", parsedBirthdate);
+
+      parsedBirthdate = format(parsedBirthdate, "yyyy-MM-dd");
+      console.log("AFTER FORMAT", parsedBirthdate);
       await axios
         .post(
-          "https://leboncoin-api.herokuapp.com/user/sign_up",
+          "http://leboncoin-backend-by-bt.herokuapp.com/user/sign_up",
 
           {
             username: pseudo,
             email: email,
-            password: password
+            password: password,
+            birthdate: parsedBirthdate,
           }
         )
-        .then(function(response) {
+        .then(function (response) {
           console.log("la réponse de l'api est:", response);
           const token = response.data.token;
           console.log("le token est:", token);
@@ -50,7 +60,7 @@ function Signup() {
             history.push("/");
           }
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
           alert(error);
         });
@@ -67,7 +77,7 @@ function Signup() {
           type="text"
           name="pseudo"
           value={pseudo}
-          onChange={event => {
+          onChange={(event) => {
             setPseudo(event.target.value);
           }}
         />
@@ -76,8 +86,17 @@ function Signup() {
           type="text"
           name="email"
           value={email}
-          onChange={event => {
+          onChange={(event) => {
             setEmail(event.target.value);
+          }}
+        />
+        <p> Date de naissance *</p>
+        <input
+          type="date"
+          name="birthdate"
+          value={birthdate}
+          onChange={(event) => {
+            setBirthdate(event.target.value);
           }}
         />
         <p> Mot de passe *</p>
@@ -85,7 +104,7 @@ function Signup() {
           type="password"
           name="password"
           value={password}
-          onChange={event => {
+          onChange={(event) => {
             setPassword(event.target.value);
           }}
         />
@@ -94,7 +113,7 @@ function Signup() {
           type="password"
           name="passwordConfirm"
           value={passwordConfirm}
-          onChange={event => {
+          onChange={(event) => {
             setPasswordConfirm(event.target.value);
           }}
         />

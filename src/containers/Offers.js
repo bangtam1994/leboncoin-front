@@ -70,7 +70,7 @@ function Offers({ search, setSearch }) {
                 className="input-search"
                 name="search"
                 value={search}
-                onChange={event => {
+                onChange={(event) => {
                   setSearch(event.target.value);
                 }}
               />

@@ -11,7 +11,7 @@ function Publish(props) {
   const [publish, setPublish] = useState(false);
 
   //   FONCTION PUBLIER
-  const handlePublish = async event => {
+  const handlePublish = async (event) => {
     event.preventDefault();
 
     // Gestion du formulaire avec infos + images
@@ -26,13 +26,13 @@ function Publish(props) {
     console.log("formdata = ", formData);
     try {
       const response = await axios.post(
-        "https:///leboncoin-api.herokuapp.com/api/offer/publish",
+        "http://leboncoin-backend-by-bt.herokuapp.com/offer/publish",
         formData,
         {
           headers: {
             Authorization: "Bearer " + props.token,
-            "Content-Type": "multipart/form-data"
-          }
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
       console.log("La réponse de l'API est : ", response.data);
@@ -56,7 +56,7 @@ function Publish(props) {
             type="text"
             name="text"
             value={title}
-            onChange={event => {
+            onChange={(event) => {
               setTitle(event.target.value);
             }}
           />
@@ -66,7 +66,7 @@ function Publish(props) {
             type="text"
             name="text"
             value={description}
-            onChange={event => {
+            onChange={(event) => {
               setDescription(event.target.value);
             }}
           />
@@ -78,7 +78,7 @@ function Publish(props) {
               type="number"
               name="price"
               value={price}
-              onChange={event => {
+              onChange={(event) => {
                 setPrice(event.target.value);
               }}
             />

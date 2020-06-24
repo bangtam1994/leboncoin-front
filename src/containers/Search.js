@@ -14,7 +14,7 @@ function Search({
   // creator,
   // created,
   search,
-  setSearch
+  setSearch,
 }) {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +24,7 @@ function Search({
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "https://leboncoin-api.herokuapp.com/api/offer/with-count"
+        "http://leboncoin-backend-by-bt.herokuapp.com/offer/with-count"
       );
       setData(response.data);
       setIsLoading(false);
@@ -53,7 +53,7 @@ function Search({
                 className="input-search"
                 name="search"
                 value={search}
-                onChange={event => {
+                onChange={(event) => {
                   setSearch(event.target.value);
                 }}
               />
@@ -66,7 +66,7 @@ function Search({
               </button>
             </div>
 
-            {data.offers.map(offer => {
+            {data.offers.map((offer) => {
               console.log("trouvé !");
 
               if (offer.title.indexOf(search) !== -1) {
@@ -77,7 +77,7 @@ function Search({
                   description,
                   price,
                   creator,
-                  created
+                  created,
                 } = offer;
                 const myLink = "/offer/" + _id;
                 return (

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
@@ -22,7 +23,7 @@ import {
   faTimesCircle,
   faSignInAlt,
   faChevronRight,
-  faChevronLeft
+  faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faPlusSquare,
@@ -33,6 +34,8 @@ library.add(
   faChevronRight,
   faChevronLeft
 );
+
+require("dotenv").config();
 
 function App() {
   //Va gérer l'état du cookie (présent ou non)

@@ -14,7 +14,7 @@ function Offer(props) {
   const [offer, setOffer] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
-  const myLink = "https://leboncoin-api.herokuapp.com/api/offer/" + id;
+  const myLink = "http://leboncoin-backend-by-bt.herokuapp.com/offer/" + id;
 
   console.log(myLink);
 
@@ -118,7 +118,7 @@ function Offer(props) {
                     ? history.push("/payment", {
                         title: offer.title,
                         price: offer.price,
-                        picture: offer.pictures
+                        picture: offer.pictures,
                       })
                     : alert("Veuillez vous connecter pour acheter");
                 }

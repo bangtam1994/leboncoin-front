@@ -16,21 +16,21 @@ function Header(props) {
   let history = useHistory();
 
   // fonction pour submit connexion de la modal
-  const handleConnexion = async event => {
+  const handleConnexion = async (event) => {
     event.preventDefault();
 
     setModal(false);
 
     await axios
       .post(
-        "https://leboncoin-api.herokuapp.com/user/log_in",
+        "http://leboncoin-backend-by-bt.herokuapp.com/user/log_in",
 
         {
           email: email,
-          password: password
+          password: password,
         }
       )
-      .then(function(response) {
+      .then(function (response) {
         console.log(response);
         if (response.data.message === "User not found") {
           alert("Cet utilisateur n'existe pas");
@@ -45,7 +45,7 @@ function Header(props) {
           history.push("/");
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         alert("invalid username or password");
         console.log(error);
       });
@@ -115,7 +115,7 @@ function Header(props) {
       {modal === true && (
         <div
           className="modal"
-          onClick={event => {
+          onClick={(event) => {
             if (event.target.className === "modal") {
               setModal(false);
             }
@@ -130,7 +130,7 @@ function Header(props) {
                 type="text"
                 name="email"
                 value={email}
-                onChange={event => {
+                onChange={(event) => {
                   setEmail(event.target.value);
                 }}
               />
@@ -140,7 +140,7 @@ function Header(props) {
                 type="password"
                 name="password"
                 value={password}
-                onChange={event => {
+                onChange={(event) => {
                   setPassword(event.target.value);
                 }}
               />
