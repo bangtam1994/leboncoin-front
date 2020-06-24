@@ -11,11 +11,11 @@ function OffersBloc({
   // price,
   // creator,
   // created
-  offers
+  offers,
 }) {
   return (
     <div>
-      {offers.map(offer => {
+      {offers.map((offer) => {
         const myLink = "/offer/" + offer._id;
         return (
           <Link
@@ -24,7 +24,7 @@ function OffersBloc({
             id={offer._id}
           >
             <div className="offers-bloc" key={offer._id}>
-              {offer.pictures.length !== 0 ? (
+              {offer && offer.pictures && offer.pictures.length !== 0 ? (
                 <img
                   src={offer.pictures[0]}
                   alt={offer.title}
