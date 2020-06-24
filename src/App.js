@@ -35,8 +35,6 @@ library.add(
   faChevronLeft
 );
 
-require("dotenv").config();
-
 function App() {
   //Va gérer l'état du cookie (présent ou non)
   const tokenFromCookie = Cookies.get("token");
