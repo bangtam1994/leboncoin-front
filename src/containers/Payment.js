@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import CheckoutForm from "../components/CheckoutForm";
 
-const Payment = ({}) => {
+const Payment = () => {
   const location = useLocation();
   const { title, price, picture } = location.state;
   console.log(title, picture, price);
@@ -11,13 +11,10 @@ const Payment = ({}) => {
     <div className="container payment d-flex column align-items-center">
       <h2>Acheter en ligne</h2>
 
-      <img src={picture} />
+      <img src={picture} alt={picture} />
       <h2>{title}</h2>
       <div className="price">{price} €</div>
-      <StripeProvider
-        apiKey="pk_test_kPj42JMZ5g3tc9EpAAvt1XVc00WnHeruR4
-"
-      >
+      <StripeProvider apiKey="pk_test_kPj42JMZ5g3tc9EpAAvt1XVc00WnHeruR4">
         <div className="checkoutForm">
           <Elements>
             <CheckoutForm />

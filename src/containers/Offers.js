@@ -1,31 +1,28 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import OffersBloc from "../components/OffersBloc";
-import Pagination from "../components/Pagination";
-
-import Search from "../containers/Search";
 
 function Offers({ search, setSearch }) {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   let history = useHistory();
   // Pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage, setPostsPerPage] = useState(10);
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-  const numberPages = Math.ceil(data.count / 20);
+  // const numberPages = Math.ceil(data.count / 20);
   console.log(data.count);
 
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "https://leboncoin-api.herokuapp.com/api/offer/with-count"
+        "https://leboncoin-api-final.herokuapp.com/offer/with-count"
       );
       setData(response.data);
       setIsLoading(false);
@@ -43,7 +40,7 @@ function Offers({ search, setSearch }) {
   // const nextPage = async numberPage => {
   //   try {
   //     const response = await axios.get(
-  //       `https://leboncoin-api.herokuapp.com/api/offer/with-count?skip=25&limit=25`
+  //       `https://leboncoin-api-final.herokuapp.com/api/offer/with-count?skip=25&limit=25`
   //     );
   //     setData(response.data);
   //     setCurrentPage(numberPage);

@@ -24,7 +24,7 @@ function Search({
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "https://leboncoin-api.herokuapp.com/api/offer/with-count"
+        "https://leboncoin-api-final.herokuapp.com/api/offer/with-count"
       );
       setData(response.data);
       setIsLoading(false);
@@ -67,16 +67,13 @@ function Search({
             </div>
 
             {data.offers.map((offer) => {
-              console.log("trouvé !");
-
               if (offer.title.indexOf(search) !== -1) {
                 const {
                   pictures,
                   _id,
                   title,
-                  description,
+
                   price,
-                  creator,
                   created,
                 } = offer;
                 const myLink = "/offer/" + _id;

@@ -11,10 +11,10 @@ const CheckoutForm = ({ stripe }) => {
       <CardElement />
       <button
         className="btn"
-        onClick={async event => {
+        onClick={async (event) => {
           // 2. on envoie le numéro de carte à Stripe
           const stripeResponse = await stripe.createToken({
-            name: "Identifiant de l'acheteur"
+            name: "Identifiant de l'acheteur",
           });
           if (stripeResponse.error) {
             alert(stripeResponse.error.message);
@@ -23,9 +23,9 @@ const CheckoutForm = ({ stripe }) => {
             console.log("stripeResponse.token", stripeResponse.token);
             // 5. on envoie ce token au backend
             const paymentResponse = await axios.post(
-              "https://leboncoin-api.herokuapp.com/pay",
+              "https://leboncoin-api-final.herokuapp.com/pay",
               {
-                token: stripeResponse.token.id
+                token: stripeResponse.token.id,
               }
             );
             console.log("paymentResponse", paymentResponse);

@@ -4,7 +4,7 @@ import Carousel from "nuka-carousel";
 import Moment from "react-moment";
 import noPictures from "../images/img-not-available.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 
@@ -14,7 +14,7 @@ function Offer(props) {
   const [offer, setOffer] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
-  const myLink = "https://leboncoin-api.herokuapp.com/api/offer/" + id;
+  const myLink = "https://leboncoin-api-final.herokuapp.com/api/offer/" + id;
 
   console.log(myLink);
 
@@ -32,7 +32,7 @@ function Offer(props) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   console.log(offer.pictures);
 
@@ -113,15 +113,13 @@ function Offer(props) {
             <br />
             <button
               onClick={() => {
-                {
-                  props.token
-                    ? history.push("/payment", {
-                        title: offer.title,
-                        price: offer.price,
-                        picture: offer.pictures,
-                      })
-                    : alert("Veuillez vous connecter pour acheter");
-                }
+                props.token
+                  ? history.push("/payment", {
+                      title: offer.title,
+                      price: offer.price,
+                      picture: offer.pictures,
+                    })
+                  : alert("Veuillez vous connecter pour acheter");
               }}
             >
               {" "}
