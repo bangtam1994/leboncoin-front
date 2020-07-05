@@ -26,7 +26,7 @@ function Publish(props) {
     console.log("formdata = ", formData);
     try {
       const response = await axios.post(
-        "https:///leboncoin-api.herokuapp.com/api/offer/publish",
+        "https:///leboncoin-api.herokuapp.com/offer/publish",
         formData,
         {
           headers: {

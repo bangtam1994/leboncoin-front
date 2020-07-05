@@ -23,7 +23,7 @@ const CheckoutForm = ({ stripe }) => {
             console.log("stripeResponse.token", stripeResponse.token);
             // 5. on envoie ce token au backend
             const paymentResponse = await axios.post(
-              "https://leboncoin-api-final.herokuapp.com/pay",
+              "https://leboncoin-api.herokuapp.com/pay",
               {
                 token: stripeResponse.token.id,
               }

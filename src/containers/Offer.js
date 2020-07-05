@@ -4,7 +4,8 @@ import Carousel from "nuka-carousel";
 import Moment from "react-moment";
 import noPictures from "../images/img-not-available.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import { useParams } from "react-router-dom";
 
@@ -12,15 +13,51 @@ function Offer(props) {
   const params = useParams();
   const { id } = params;
   const [offer, setOffer] = useState({});
+  const [modal, setModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
-  const myLink = "https://leboncoin-api-final.herokuapp.com/api/offer/" + id;
+  const myLink = "https://leboncoin-api.herokuapp.com/offer/" + id;
 
-  console.log(myLink);
+  // fonction pour submit connexion de la modal
+  const handleConnexion = async (event) => {
+    event.preventDefault();
+
+    setModal(false);
+
+    await axios
+      .post(
+        "https://leboncoin-api.herokuapp.com/user/log_in",
+
+        {
+          email: email,
+          password: password,
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        if (response.data.message === "User not found") {
+          alert("Cet utilisateur n'existe pas");
+        } else {
+          //J'enregistre mon token dans mes cookies
+          const token = response.data.token;
+          console.log("your login token is", token);
+          Cookies.set("token", token, { expires: 7 });
+
+          // Je remplace le bouton "se connecter" par "se déconnecter"
+          props.setUser({ token: token });
+          history.push("/");
+        }
+      })
+      .catch(function (error) {
+        alert("invalid username or password");
+        console.log(error);
+      });
+  };
 
   const fetchData = async () => {
     try {
-      console.log(id);
       const response = await axios.get(myLink);
       setOffer(response.data);
 
@@ -34,20 +71,14 @@ function Offer(props) {
     fetchData();
   });
 
-  console.log(offer.pictures);
-
   return (
     <>
-      {/* {offer.title}
-      {offer.description}
-      {offer.price} */}
-
       {isLoading === true ? (
         <div> En cours de chargement</div>
       ) : (
         <div className="offer container d-flex">
           <div className="blocLeft flex3">
-            {offer.pictures.length !== 0 ? (
+            {offer & offer.pictures && offer.pictures.length !== 0 ? (
               offer.pictures.length === 1 ? (
                 <img
                   src={offer.pictures[0]}
@@ -119,12 +150,80 @@ function Offer(props) {
                       price: offer.price,
                       picture: offer.pictures,
                     })
-                  : alert("Veuillez vous connecter pour acheter");
+                  : setModal(true);
               }}
             >
               {" "}
               Acheter{" "}
             </button>
+
+            {/* MODAL DU LOGIN */}
+            {modal === true && (
+              <div
+                className="modal"
+                onClick={(event) => {
+                  if (event.target.className === "modal") {
+                    setModal(false);
+                  }
+                }}
+              >
+                <div className="whiteblock">
+                  <form onSubmit={handleConnexion}>
+                    <h2> Connexion </h2>
+                    <hr />
+                    <p> Adresse email</p>
+                    <input
+                      type="text"
+                      name="email"
+                      value={email}
+                      onChange={(event) => {
+                        setEmail(event.target.value);
+                      }}
+                    />
+
+                    <p> Mot de Passe</p>
+                    <input
+                      type="password"
+                      name="password"
+                      value={password}
+                      onChange={(event) => {
+                        setPassword(event.target.value);
+                      }}
+                    />
+                    <br />
+                    {/* Bouton pour se connecter  */}
+                    <input
+                      className="modal-btn-login"
+                      type="submit"
+                      value="Se connecter"
+                    />
+                  </form>
+
+                  {/* formulaire pour redigirer vers signup  */}
+                  <form>
+                    <p>Vous n'avez pas de compte ?</p>
+                    <Link to="/user/sign_up">
+                      <input
+                        className="modal-btn-login"
+                        type="submit"
+                        value="Créer un compte"
+                        onClick={() => {
+                          setModal(false);
+                        }}
+                      />
+                    </Link>
+                  </form>
+                  {/* Pour fermer la modale  */}
+                  <FontAwesomeIcon
+                    icon="times-circle"
+                    className="modalCloseBtn"
+                    onClick={() => {
+                      setModal(false);
+                    }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

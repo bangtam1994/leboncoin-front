@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
+
 import { format, parseISO } from "date-fns";
+import Cookies from "js-cookie";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 function Signup() {
   //Déclaration des states
   const [pseudo, setPseudo] = useState("");
   const [email, setEmail] = useState("");
   const [birthdate, setBirthdate] = useState("");
-
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [checkbox, setCheckbox] = useState(false);
 
+  //fonction pour rediriger vers homepage
+  let history = useHistory();
   //fonction pour vérifier la checkbox
   const handleCheckbox = () => {
     setCheckbox(!checkbox);
   };
-
-  //fonction pour rediriger vers homepage
-  let history = useHistory();
 
   //fonction quand on submit le formulaire d'inscription
   const handleSubmit = async (event) => {
@@ -31,14 +32,12 @@ function Signup() {
       alert("Please accept the general conditions");
     } else {
       let parsedBirthdate = parseISO(birthdate);
-      console.log("birthdate", birthdate);
-      console.log("parsedISObirthdate", parsedBirthdate);
 
       parsedBirthdate = format(parsedBirthdate, "yyyy-MM-dd");
-      console.log("AFTER FORMAT", parsedBirthdate);
+
       await axios
         .post(
-          "https://leboncoin-backend-by-bt.herokuapp.com/user/sign_up",
+          "https://leboncoin-api.herokuapp.com/user/sign_up",
 
           {
             username: pseudo,
@@ -99,6 +98,7 @@ function Signup() {
             setBirthdate(event.target.value);
           }}
         />
+
         <p> Mot de passe *</p>
         <input
           type="password"
